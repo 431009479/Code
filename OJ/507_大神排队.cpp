@@ -17,7 +17,8 @@ int n;
 node arr[50005];
 
 int cmp(node a, node b){
-    return a.y < b.y;
+    if(a.y + a.c == b.y + b.c)return a.y < b.y;
+    return a.y + a.c < b.y + b.c;
 }
 
 
@@ -27,11 +28,12 @@ int main(){
         cin >> arr[i].y >> arr[i].c;
     }
     sort(arr, arr + n, cmp);
-    int sum = 0;
-    for(int i = 0; i < n - 1; i++){
+    int sum = 0, ans = -99999999;
+    for(int i = 0; i < n; i++){
+        ans = max(ans, sum - arr[i].c);
         sum += arr[i].y;
     }
 
-    cout << sum - arr[n - 1].c;
+    cout << ans;
     return 0;
 }
