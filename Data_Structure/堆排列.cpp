@@ -9,7 +9,7 @@
 #include<stdlib.h>
 #include<time.h>
 #define swap(a, b){\
-    __typeof(a)__temp = a;\
+    __typeof(a) __temp = a;\
     a = b; b = __temp;\
 }
  
